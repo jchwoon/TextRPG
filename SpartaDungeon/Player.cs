@@ -129,7 +129,7 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 0:
-                    SpartaDungeon.DisplayGameIntro(this);
+                    SpartaDungeon.DisplayGameIntro();
                     break;
                 case 1:
                     DisplayEquipManage();
@@ -170,7 +170,7 @@ namespace SpartaDungeon
 
         private string _name;
         private int _level = 1;
-        private int _gold = 1500;
+        private int _gold = 15000;
         private Inventory _inventory =  new Inventory();
         private JobType _job;
         private Item[] _equipmentWeaponArray = new Item[2];
@@ -211,7 +211,7 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 0:
-                    SpartaDungeon.DisplayGameIntro(this);
+                    SpartaDungeon.DisplayGameIntro();
                     break;
             }
         }
@@ -284,7 +284,7 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 0:
-                    SpartaDungeon.DisplayGameIntro(this);
+                    SpartaDungeon.DisplayGameIntro();
                     break;
             }
         }
@@ -356,7 +356,7 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 0:
-                    SpartaDungeon.DisplayGameIntro(this);
+                    SpartaDungeon.DisplayGameIntro();
                     break;
             }
         }
@@ -428,7 +428,7 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 0:
-                    SpartaDungeon.DisplayGameIntro(this);
+                    SpartaDungeon.DisplayGameIntro();
                     break;
             }
         }

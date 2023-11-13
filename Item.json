@@ -2,6 +2,7 @@
   "weapons": [
     {
       "Damage": 3,
+      "WeaponType": 0,
       "Description": "초심자의 검",
       "Name": "낡은 검",
       "ItemType": 0,
@@ -10,6 +11,7 @@
     },
     {
       "Damage": 4,
+      "WeaponType": 2,
       "Description": "초심자의 완드",
       "Name": "낡은 완드",
       "ItemType": 0,
@@ -18,6 +20,7 @@
     },
     {
       "Damage": 4,
+      "WeaponType": 3,
       "Description": "초심자의 너클",
       "Name": "낡은 너클",
       "ItemType": 0,
@@ -26,6 +29,7 @@
     },
     {
       "Damage": 4,
+      "WeaponType": 1,
       "Description": "초심자의 활",
       "Name": "낡은 활",
       "ItemType": 0,
@@ -34,6 +38,7 @@
     },
     {
       "Damage": 9,
+      "WeaponType": 0,
       "Description": "어디선가 사용됐던거 같은 검입니다.",
       "Name": "청동 검",
       "ItemType": 0,
@@ -42,6 +47,7 @@
     },
     {
       "Damage": 10,
+      "WeaponType": 2,
       "Description": "어디선가 사용됐던거 같은 완드입니다.",
       "Name": "청동 완드",
       "ItemType": 0,
@@ -50,6 +56,7 @@
     },
     {
       "Damage": 12,
+      "WeaponType": 3,
       "Description": "어디선가 사용됐던거 같은 너클입니다.",
       "Name": "청동 너클",
       "ItemType": 0,
@@ -58,6 +65,7 @@
     },
     {
       "Damage": 10,
+      "WeaponType": 1,
       "Description": "어디선가 사용됐던거 같은 활입니다.",
       "Name": "청동 활",
       "ItemType": 0,
@@ -66,6 +74,7 @@
     },
     {
       "Damage": 18,
+      "WeaponType": 0,
       "Description": "스파르타의 전사들이 사용했다는 전설의 검입니다.",
       "Name": "스파르타 검",
       "ItemType": 0,
@@ -74,6 +83,7 @@
     },
     {
       "Damage": 22,
+      "WeaponType": 2,
       "Description": "스파르타의 전사들이 사용했다는 전설의 완드입니다.",
       "Name": "스파르타 완드",
       "ItemType": 0,
@@ -82,6 +92,7 @@
     },
     {
       "Damage": 24,
+      "WeaponType": 3,
       "Description": "스파르타의 전사들이 사용했다는 전설의 너클입니다.",
       "Name": "스파르타 너클",
       "ItemType": 0,
@@ -90,6 +101,7 @@
     },
     {
       "Damage": 20,
+      "WeaponType": 1,
       "Description": "스파르타의 전사들이 사용했다는 전설의 활입니다.",
       "Name": "스파르타 활",
       "ItemType": 0,

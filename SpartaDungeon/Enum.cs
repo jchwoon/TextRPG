@@ -20,7 +20,7 @@ namespace EnumsNamespace
         WT_Sword,
         WT_Arrow,
         WT_Wand,
-        WT_knuckle,
+        WT_Knuckle,
     }
 
     public enum ItmeRarity

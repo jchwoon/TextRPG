@@ -2,6 +2,7 @@
 using System.Numerics;
 using System;
 using System.IO;
+using EnumsNamespace;
 
 
 namespace SpartaDungeon
@@ -10,8 +11,16 @@ namespace SpartaDungeon
     {
         public static Json json = new Json();
         public static Store store = new Store();
-        
-        public static void DisplayGameIntro(Player player)
+        public static Player player1;
+        public static Dictionary<WeaponType, JobType> weaponJobMapping = new Dictionary<WeaponType, JobType>
+        {
+            {WeaponType.WT_Sword, JobType.JT_Warrior},
+            {WeaponType.WT_Arrow, JobType.JT_Archer},
+            {WeaponType.WT_Wand, JobType.JT_Mage},
+            {WeaponType.WT_Knuckle, JobType.JT_Thief},
+        };
+
+        public static void DisplayGameIntro()
         {
             Console.Clear();
 
@@ -29,14 +38,14 @@ namespace SpartaDungeon
             switch (input)
             {
                 case 1:
-                    player.DisplayMyInfo();
+                    player1.DisplayMyInfo();
                     break;
 
                 case 2:
-                    player.DisplayInventory();
+                    player1.DisplayInventory();
                     break;
                 case 3:
-                    store.DisplayStore(player);
+                    store.DisplayStore();
                     break;
             }
         }
@@ -116,9 +125,9 @@ namespace SpartaDungeon
         static void Main()
         {
             string nickname = SetNickname();
-            Player player1 = ChoiceJob(nickname);
+            player1 = ChoiceJob(nickname);
             player1.Inventory.SetInitialItem(player1.JobType);
-            DisplayGameIntro(player1);
+            DisplayGameIntro();
         }
 
         

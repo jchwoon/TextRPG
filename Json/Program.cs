@@ -1,4 +1,5 @@
 ﻿using System.Xml;
+using EnumsNamespace;
 using Newtonsoft.Json;
 using SpartaDungeon;
 
@@ -22,14 +23,15 @@ namespace Json
 
     public class WeaponFactory
     {
-        public static Weapon CreateWeapon(string name, string description, int damage, int gold)
+        public static Weapon CreateWeapon(string name, string description, int damage, int gold, WeaponType weaponType)
         {
-            return new Weapon(name, description, damage)
+            return new Weapon(name, description, damage, gold, weaponType)
             {
                 Name = name,
                 Description = description,
                 Damage = damage,
-                Gold = gold
+                Gold = gold,
+                WeaponType = weaponType,
             };
         }
     }
@@ -38,7 +40,7 @@ namespace Json
     {
         public static Armor CreateArmor(string name, string description, int defence, int gold)
         {
-            return new Armor(name, description, defence)
+            return new Armor(name, description, defence, gold)
             {
                 Name = name,
                 Description = description,
@@ -52,20 +54,20 @@ namespace Json
         static void Main()
         {
             // JSON 파일에 저장할 데이터 객체 생성
-            Weapon item1 = WeaponFactory.CreateWeapon("낡은 검", "초심자의 검", 3, 500);
-            Weapon item2 = WeaponFactory.CreateWeapon("낡은 완드", "초심자의 완드", 4, 500);
-            Weapon item3 = WeaponFactory.CreateWeapon("낡은 너클", "초심자의 너클", 4, 500);
-            Weapon item4 = WeaponFactory.CreateWeapon("낡은 활", "초심자의 활", 4, 500);
+            Weapon item1 = WeaponFactory.CreateWeapon("낡은 검", "초심자의 검", 3, 500, WeaponType.WT_Sword);
+            Weapon item2 = WeaponFactory.CreateWeapon("낡은 완드", "초심자의 완드", 4, 500, WeaponType.WT_Wand);
+            Weapon item3 = WeaponFactory.CreateWeapon("낡은 너클", "초심자의 너클", 4, 500, WeaponType.WT_Knuckle);
+            Weapon item4 = WeaponFactory.CreateWeapon("낡은 활", "초심자의 활", 4, 500, WeaponType.WT_Arrow);
 
-            Weapon item5 = WeaponFactory.CreateWeapon("청동 검", "어디선가 사용됐던거 같은 검입니다.", 9, 3500);
-            Weapon item6 = WeaponFactory.CreateWeapon("청동 완드", "어디선가 사용됐던거 같은 완드입니다.", 10, 3500);
-            Weapon item7 = WeaponFactory.CreateWeapon("청동 너클", "어디선가 사용됐던거 같은 너클입니다.", 12, 3500);
-            Weapon item8 = WeaponFactory.CreateWeapon("청동 활", "어디선가 사용됐던거 같은 활입니다.", 10, 3500);
+            Weapon item5 = WeaponFactory.CreateWeapon("청동 검", "어디선가 사용됐던거 같은 검입니다.", 9, 3500, WeaponType.WT_Sword);
+            Weapon item6 = WeaponFactory.CreateWeapon("청동 완드", "어디선가 사용됐던거 같은 완드입니다.", 10, 3500, WeaponType.WT_Wand);
+            Weapon item7 = WeaponFactory.CreateWeapon("청동 너클", "어디선가 사용됐던거 같은 너클입니다.", 12, 3500, WeaponType.WT_Knuckle);
+            Weapon item8 = WeaponFactory.CreateWeapon("청동 활", "어디선가 사용됐던거 같은 활입니다.", 10, 3500, WeaponType.WT_Arrow);
 
-            Weapon item9 = WeaponFactory.CreateWeapon("스파르타 검", "스파르타의 전사들이 사용했다는 전설의 검입니다.", 18, 9999);
-            Weapon item10 = WeaponFactory.CreateWeapon("스파르타 완드", "스파르타의 전사들이 사용했다는 전설의 완드입니다.", 22, 9999);
-            Weapon item11 = WeaponFactory.CreateWeapon("스파르타 너클", "스파르타의 전사들이 사용했다는 전설의 너클입니다.", 24, 9999);
-            Weapon item12 = WeaponFactory.CreateWeapon("스파르타 활", "스파르타의 전사들이 사용했다는 전설의 활입니다.", 20, 9999);
+            Weapon item9 = WeaponFactory.CreateWeapon("스파르타 검", "스파르타의 전사들이 사용했다는 전설의 검입니다.", 18, 9999, WeaponType.WT_Sword);
+            Weapon item10 = WeaponFactory.CreateWeapon("스파르타 완드", "스파르타의 전사들이 사용했다는 전설의 완드입니다.", 22, 9999, WeaponType.WT_Wand);
+            Weapon item11 = WeaponFactory.CreateWeapon("스파르타 너클", "스파르타의 전사들이 사용했다는 전설의 너클입니다.", 24, 9999, WeaponType.WT_Knuckle);
+            Weapon item12 = WeaponFactory.CreateWeapon("스파르타 활", "스파르타의 전사들이 사용했다는 전설의 활입니다.", 20, 9999, WeaponType.WT_Arrow);
 
             Armor armor1 = ArmorFactory.CreateArmor("무쇠갑옷", "초심자의 갑옷", 5, 500);
             Armor armor2 = ArmorFactory.CreateArmor("청동갑옷", "어디선가 사용됐던거 같은 갑옷입니다.", 9,3500);

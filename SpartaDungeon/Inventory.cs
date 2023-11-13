@@ -29,28 +29,39 @@ namespace SpartaDungeon
                 return false;
             }
 
+            if (_items[slot].ItemType == ItemType.IT_Weapon)
+            {
+                Weapon weapon = (Weapon)_items[slot];
+                if (SpartaDungeon.weaponJobMapping[weapon.WeaponType] != SpartaDungeon.player1.JobType)
+                {
+                    Console.WriteLine("해당 무기는 착용할 수 없습니다. 직업에 맞는 무기를 착용해주세요");
+                    return false;
+                }
+            }
+
             if (_items[slot].ItemType == ItemType.IT_Weapon || _items[slot].ItemType == ItemType.IT_Armor)
             {
+                //나의 인벤토리에서 착용중인 아이템의 타입을 갖고와서 매개변수로 들어온 아이템과 비교
+                //타입이 일치하면 착용중인 아이템을 ToggleEquipItem을 통해서 해제
+                //매개변수로 들어온 아이템(장착하려는 아이템) 착용
+                foreach(Item item in SpartaDungeon.player1.Inventory.Items)
+                {
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
+                    if (item.IsEquip == true && item.ItemType == _items[slot].ItemType && item.Name != _items[slot].Name)
+                    {
+                        ToggleEquipItem(item);
+                    }
+                }
                 ToggleEquipItem(_items[slot]);
             }
 
             return true;
         }
 
-        public void ToggleEquipItem(Item item)
-        {
-            if (item.IsEquip)
-            {
-                item.IsEquip = false;
-                Console.Clear();
-            }
-            else
-            {
-                item.IsEquip = true;
-                Console.Clear();
-            }
-            
-        }
 
         public bool AddItem(Item item)
         {
@@ -81,16 +92,6 @@ namespace SpartaDungeon
             return true;
         }
 
-        public Item FindItemAtSlot(int slot)
-        {
-            if (_items[slot] == null)
-            {
-                return null;
-            }
-
-            return _items[slot];
-        }
-
         public void SetInitialItem(JobType jobType)
         {
             Item initialWeapon;
@@ -102,26 +103,39 @@ namespace SpartaDungeon
             {
                 case JobType.JT_Warrior:
                     Weapon warriorInitItem = itemList.Weapons[0];
-                    initialWeapon = new Weapon(warriorInitItem.Name, warriorInitItem.Description, warriorInitItem.Damage);
+                    initialWeapon = new Weapon(warriorInitItem.Name, warriorInitItem.Description, warriorInitItem.Damage, 1, WeaponType.WT_Sword);
                     break;
                 case JobType.JT_Mage:
                     Weapon mageInitItem = itemList.Weapons[1];
-                    initialWeapon = new Weapon(mageInitItem.Name, mageInitItem.Description, mageInitItem.Damage);
+                    initialWeapon = new Weapon(mageInitItem.Name, mageInitItem.Description, mageInitItem.Damage, 1, WeaponType.WT_Wand);
                     break;
                 case JobType.JT_Thief:
                     Weapon thiefInitItem = itemList.Weapons[2];
-                    initialWeapon = new Weapon(thiefInitItem.Name, thiefInitItem.Description, thiefInitItem.Damage);
+                    initialWeapon = new Weapon(thiefInitItem.Name, thiefInitItem.Description, thiefInitItem.Damage, 1, WeaponType.WT_Knuckle);
                     break;
                 default:
                     Weapon archerInitItem = itemList.Weapons[3];
-                    initialWeapon = new Weapon(archerInitItem.Name, archerInitItem.Description, archerInitItem.Damage);
+                    initialWeapon = new Weapon(archerInitItem.Name, archerInitItem.Description, archerInitItem.Damage, 1, WeaponType.WT_Arrow);
                     break;
             }
             Armor initArmorData = itemList.Armors[0];
-            initialArmor = new Armor(initArmorData.Name, initArmorData.Description, initArmorData.Defence);
+            initialArmor = new Armor(initArmorData.Name, initArmorData.Description, initArmorData.Defence, 1);
 
             AddItem(initialWeapon);
             AddItem(initialArmor);
+        }
+        private void ToggleEquipItem(Item item)
+        {
+            if (item.IsEquip)
+            {
+                item.IsEquip = false;
+                Console.Clear();
+            }
+            else
+            {
+                item.IsEquip = true;
+                Console.Clear();
+            }
         }
 
         private int FindItemSlot(Item item)

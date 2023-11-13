@@ -56,10 +56,12 @@ namespace SpartaDungeon
 
     public class Weapon : Item
     {
-        public Weapon(string name, string description, int damage)
+        public Weapon(string name, string description, int damage, int gold, WeaponType weaponType)
             :base(ItemType.IT_Weapon, name, description)
         {
             _damage = damage;
+            _weaponType = weaponType;
+            Gold = gold;
         }
 
         public int Damage
@@ -67,16 +69,23 @@ namespace SpartaDungeon
             get { return _damage; }
             set { _damage = value; }
         }
+        public WeaponType WeaponType
+        {
+            get { return _weaponType; }
+            set { _weaponType = value; }
+        }
 
         private int _damage;
+        private WeaponType _weaponType;
     }
 
     public class Armor : Item
     {
-        public Armor(string name, string description, int defence) 
+        public Armor(string name, string description, int defence, int gold) 
             :base(ItemType.IT_Armor, name, description)
         {
             _defence = defence;
+            Gold = gold;
         }
 
         public int Defence
